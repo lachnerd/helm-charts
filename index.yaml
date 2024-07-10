@@ -3,6 +3,25 @@ entries:
   pihole:
   - apiVersion: v1
     appVersion: 2024.06.0
+    created: "2024-07-10T20:35:40.483016679Z"
+    description: Installs pihole in kubernetes
+    digest: f3c2af5534d69ca313312d1bdcba533c210e0bc995342084c1869cde2b7bb6a9
+    home: https://github.com/MoJo2600/pihole-kubernetes/tree/main/charts/pihole
+    icon: https://i2.wp.com/pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png
+    maintainers:
+    - email: todo
+      name: lachnerd
+    name: pihole
+    sources:
+    - https://github.com/MoJo2600/pihole-kubernetes/tree/main/charts/pihole
+    - https://pi-hole.net/
+    - https://github.com/pi-hole
+    - https://github.com/pi-hole/docker-pi-hole
+    urls:
+    - pihole-2.24.1.tgz
+    version: 2.24.1
+  - apiVersion: v1
+    appVersion: 2024.06.0
     created: "2024-07-10T19:55:06.363044543Z"
     description: Installs pihole in kubernetes
     digest: d21e874e95fa8eb701d4f219d189342e458171b14b0b525a9af863b51feb4350
@@ -41,4 +60,4 @@ entries:
     urls:
     - stirling-pdf-chart-1.0.0.tgz
     version: 1.0.0
-generated: "2024-07-10T19:55:06.363054722Z"
+generated: "2024-07-10T20:35:40.483029512Z"
