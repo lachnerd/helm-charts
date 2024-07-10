@@ -13,8 +13,8 @@ data:
   {{- range .Values.dnsmasq.upstreamServers }}
     {{ . }}
   {{- end }}
-  {{- range .Values.dnsmasq.customDnsEntries }}
-    {{ . }}
+  {{- range $index, $entry := .Values.dnsmasq.customDnsEntries }}
+    adress=/{{ $entry.host }}/{{ $entry.ip }}
   {{- end }}
   {{- if .Values.serviceDns.loadBalancerIP }}
     dhcp-option=6,{{ .Values.serviceDns.loadBalancerIP }}
