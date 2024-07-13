@@ -4,7 +4,7 @@ home: https://github.com/MoJo2600/pihole-kubernetes/tree/main/charts/pihole
 name: pihole
 appVersion: "2024.06.0"
 # Do not touch will be updated during release
-version: 2.24.1
+version: 2.24.2
 sources:
   - https://github.com/MoJo2600/pihole-kubernetes/tree/main/charts/pihole
   - https://pi-hole.net/
@@ -13,4 +13,4 @@ sources:
 icon: https://i2.wp.com/pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png
 maintainers:
   - name: lachnerd
-    email: todo
+    email: heinzepreller@gmail.com
