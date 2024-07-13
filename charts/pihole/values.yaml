@@ -339,9 +339,18 @@ dnsmasq:
   # - server=/bar.foo/192.168.178.11
 
   # -- Add custom dns entries to override the dns resolution. All lines will be added to the pihole dnsmasq configuration.
-  customDnsEntries:
-    - host: foo.bar
-      ip: 192.168.178.1
+  #    works but is not shown in GUI for viewing entries in GUI use customDnsPihole
+  #    '#2 Configured in a config file in /etc/dnsmasq.d/'
+  customDnsEntries:  []
+    # - host: foo.bar
+    #   ip: 192.168.178.1
+
+  # -- Add custom dns entries to override the dns resolution. Entries in this file take precedence over other DNS resolutions.
+  #    is shown in GUI
+  #    '#4 Read from the "Local (custom) DNS" list (stored in /etc/pihole/custom.list)'
+  customDnsPihole: []
+    # - host: foo.bar2
+    #   ip: 192.168.178.2
 
   # -- Dnsmasq reads the /etc/hosts file to resolve ips. You can add additional entries if you like
   additionalHostsEntries: []

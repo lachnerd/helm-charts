@@ -244,6 +244,11 @@ spec:
           - mountPath: /etc/addn-hosts
             name: custom-dnsmasq
             subPath: addn-hosts
+          {{- if .Values.dnsmasq.customDnsPihole }}
+          - mountPath: /etc/pihole/custom.list
+            name: custom-dns-pihole
+            subPath: custom.list
+          {{- end }}
           {{- if .Values.dnsmasq.customCnameEntries }}
           - mountPath: /etc/dnsmasq.d/05-pihole-custom-cname.conf
             name: custom-dnsmasq
@@ -313,6 +318,10 @@ spec:
           defaultMode: 420
           name: {{ template "pihole.fullname" . }}-custom-dnsmasq
         name: custom-dnsmasq
+      - configMap:
+          defaultMode: 420
+          name: {{ template "pihole.fullname" . }}-dns-pihole
+        name: custom-dns-pihole
       {{- if .Values.adlists }}
       - configMap:
           defaultMode: 420
