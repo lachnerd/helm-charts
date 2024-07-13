@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "pihole.fullname" . }}-dns-pihole
+  labels:
+    app: {{ template "pihole.name" . }}
+    chart: {{ template "pihole.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  custom.list: |
+  {{- range $index, $entry := .Values.dnsmasq.customDnsPihole }}
+    {{ $entry.ip }} {{ $entry.host }}
+  {{- end }}
