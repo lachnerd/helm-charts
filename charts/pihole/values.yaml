@@ -152,6 +152,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
+  pathType: ImplementationSpecific
   hosts:
     # virtualHost (default value is pi.hole) will be appended to the hosts
     - chart-example.local
@@ -183,14 +184,19 @@ probes:
     scheme: HTTP
   readiness:
     # -- Generate a readiness probe
+    # 'type' defaults to httpGet, can be set to 'command' to use a command type readiness probe.
+    type: httpGet
+    # command:
+    #   - /bin/bash
+    #   - -c
+    #   - /bin/true
     enabled: true
-    # -- Initial delay to wait for readiness check
+    # -- wait time before trying the readiness probe
     initialDelaySeconds: 60
-    # -- The failure threshold
-    failureThreshold: 3
-    # -- The timeout in seconds
+    # -- threshold until the probe is considered failing
+    failureThreshold: 10
+    # -- timeout in seconds
     timeoutSeconds: 5
-    # -- The port
     port: http
     scheme: HTTP
 
@@ -364,8 +370,8 @@ dnsmasq:
 
   # -- Other options
   customSettings:
-  # otherSettings:
-  # - rebind-domain-ok=/plex.direct/
+  # otherSettings: |
+  #   rebind-domain-ok=/plex.direct/
 
   # -- Here we specify custom cname entries that should point to `A` records or
   # elements in customDnsEntries array.
